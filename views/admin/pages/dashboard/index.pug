@@ -1,0 +1,51 @@
+extends ../../layouts/default.pug
+
+block main
+    h1 Trang tổng quan
+
+    .row.mt-4 
+        .col-12 
+            .card.mb-4 
+                .card-header Thong tin tai khoan 
+                .card-body 
+                    if(user.avatar)
+                        img(
+                            src=user.avatar 
+                            style="height:100px; margin-bottom:15px;"
+                        )
+                    if(user.fullName)
+                        p Ho ten: <b>#{user.fullName}</b>
+                    if(user.email)
+                        p email: <b>#{user.email}</b>
+                    if(user.phone)
+                        p so dien thoai: <b>#{user.phone}</b>
+                    if(role.title)
+                        p phan quyen: <b>#{role.title}</b>
+        .col-6 
+            .card.mb-4 
+                .card-header Danh muc san pham 
+                .card-body 
+                    p so luong: <b>#{statistic.categoryProduct.total}</b>
+                    p hoat dong: <b>#{statistic.categoryProduct.active}</b>
+                    p dung hoat dong: <b>#{statistic.categoryProduct.inactive}</b>
+        .col-6 
+            .card.mb-4 
+                .card-header san pham 
+                .card-body 
+                    p so luong: <b>#{statistic.product.total}</b>
+                    p hoat dong: <b>#{statistic.product.active}</b>
+                    p dung hoat dong: <b>#{statistic.product.inactive}</b>
+        .col-6 
+            .card.mb-4 
+                .card-header tai khoan admin 
+                .card-body 
+                    p so luong: <b>#{statistic.account.total}</b>
+                    p hoat dong: <b>#{statistic.account.active}</b>
+                    p dung hoat dong: <b>#{statistic.account.inactive}</b>
+        .col-6 
+            .card.mb-4 
+                .card-header tai khoan client
+                .card-body 
+                    p so luong: <b>#{statistic.user.total}</b>
+                    p hoat dong: <b>#{statistic.user.active}</b>
+                    p dung hoat dong: <b>#{statistic.user.inactive}</b>
